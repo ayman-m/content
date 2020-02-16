@@ -1,0 +1,57 @@
+category: Utilities
+commonfields:
+  id: PY_PWSH_Wrapper
+  version: -1
+configuration:
+- display: Username
+  name: credentials
+  required: true
+  type: 9
+description: An Integration to invoke PWSH scripts/cmdlets in Python
+display: PY-PWSH Wrapper
+name: PY_PWSH_Wrapper
+script:
+  commands:
+  - arguments:
+    - default: false
+      description: The CMDLET Command
+      isArray: false
+      name: cmdlet
+      predefined:
+      - ''
+      required: true
+      secret: false
+    - default: false
+      description: The CMDLET Arguments
+      isArray: false
+      name: args
+      predefined:
+      - ''
+      required: false
+      secret: false
+    deprecated: false
+    description: Run CMDLET
+    execution: false
+    name: pwsh-cmdlet
+    outputs:
+    - contextPath: Pwsh
+      description: The Commands Outputs
+      type: String
+  - arguments:
+    - default: false
+      isArray: false
+      name: script-path
+      required: true
+      secret: false
+    deprecated: false
+    description: Execute a PowerShell Script File
+    execution: false
+    name: pwsh-script
+  feed: false
+  isfetch: false
+  longRunning: false
+  longRunningPort: false
+  runonce: false
+  script: '-'
+  subtype: python3
+  type: python
