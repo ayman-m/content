@@ -1,0 +1,49 @@
+category: Data Enrichment & Threat Intelligence
+commonfields:
+  id: MonAPI2
+  version: -1
+configuration:
+- defaultvalue: 760c251dffe511ed5855cc21b0309a85ee5edddd
+  display: API Token
+  name: token
+  required: true
+  type: 4
+- defaultvalue: https://api.monapi.io
+  display: API URL
+  name: url
+  required: false
+  type: 0
+- defaultvalue: v1
+  display: API Version
+  name: version
+  required: false
+  type: 0
+- display: Use system proxy settings
+  name: proxy
+  required: false
+  type: 8
+description: MonAPI is a Threat Intel service to lookup Real Time Reputation, Threat
+  Intel and Blacklists for IP and Domains.
+display: MonAPI
+name: MonAPI2
+script:
+  commands:
+  - arguments:
+    - default: false
+      description: IP Value
+      isArray: false
+      name: ip
+      required: false
+      secret: false
+    deprecated: false
+    description: Checks the reputation of an IP address.
+    execution: false
+    name: ip
+  feed: false
+  isfetch: false
+  longRunning: false
+  longRunningPort: false
+  runonce: false
+  script: '-'
+  subtype: python3
+  type: python
