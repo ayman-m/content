@@ -1,0 +1,46 @@
+category: Utilities
+commonfields:
+  id: Atom_PY
+  version: -1
+configuration:
+- display: Username
+  name: credentials
+  required: true
+  type: 9
+description: Hello World Integrations !
+display: Atom PY
+name: Atom_PY
+script:
+  commands:
+  - arguments:
+    - auto: PREDEFINED
+      default: false
+      isArray: false
+      name: center
+      predefined:
+      - 'true'
+      - 'false'
+      required: false
+      secret: false
+    - auto: PREDEFINED
+      default: false
+      isArray: false
+      name: orbit
+      predefined:
+      - 'true'
+      - 'false'
+      required: false
+      secret: false
+    deprecated: false
+    description: Use True or False
+    execution: false
+    name: atom
+  dockerimage: demisto/python3:3.7.4.2245
+  feed: false
+  isfetch: false
+  longRunning: false
+  longRunningPort: false
+  runonce: false
+  script: '-'
+  subtype: python3
+  type: python
