@@ -13,14 +13,13 @@ INTEGRATION_NAME = "Nozomi Guardian"
 
 class Client:
 
-    def __init__(self, url, proxies,username,password):
+    def __init__(self, url, proxies, username, password):
         self.base_url = url
         self.proxies = proxies
         self.username = username
         self.password = password
 
-
-    def query(self,search_query):
+    def query(self, search_query):
         query = search_query
         LOG('running request with url=%s' % self.base_url)
         full_url = self.base_url + '/api/open/query/do?query=' + urllib.parse.quote(query.encode('utf8'))
@@ -28,7 +27,7 @@ class Client:
         basic_auth = 'Basic ' + b64encode(auth).decode()
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-        res=requests.request(
+        res = requests.request(
             "GET",
             full_url,
             headers={
@@ -46,6 +45,7 @@ class Client:
 
 
 '''' Commands '''
+
 
 def test_module(client):
     try:
@@ -94,7 +94,7 @@ def list_all_nodes(client):
         title = ("%s - Results for the Search Query" % INTEGRATION_NAME)
         raws = []
         nozomi_ec = []
-        raw_response=client.query(search_query)['result']
+        raw_response = client.query(search_query)['result']
 
         if raw_response:
             for item in raw_response:
@@ -131,11 +131,11 @@ def find_ip_by_mac(client):
         title = ("%s - Results for the Search Query" % INTEGRATION_NAME)
         raws = []
         nozomi_ec = []
-        raw_response=client.query(search_query)['result']
+        raw_response = client.query(search_query)['result']
 
         if raw_response:
             for item in raw_response:
-                if 'ip' in item :
+                if 'ip' in item:
                     raws.append(raw_response)
                     nozomi_ec.append({
                         'IP': item['ip']
@@ -193,6 +193,7 @@ def main():
 
     except Exception as e:
         return_error(str(e))
+
 
 if __name__ in ('__main__', '__builtin__', 'builtins'):
     main()
