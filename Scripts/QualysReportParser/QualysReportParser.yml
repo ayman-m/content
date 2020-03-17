@@ -1,0 +1,33 @@
+args:
+- default: false
+  description: Report Entry ID
+  isArray: false
+  name: entryID
+  required: true
+  secret: false
+- default: false
+  description: Report Max File Size
+  isArray: false
+  name: maxFileSize
+  required: false
+  secret: false
+comment: Parse and XML Qualys Report
+commonfields:
+  id: d0a2cca0-2733-43ab-9a12-4e03029adefb
+  version: -1
+enabled: false
+name: QualysReportParser
+outputs:
+- contextPath: Vulnerabilities.CVE
+  description: A list of CVE's
+  type: Unknown
+- contextPath: Vulnerabilities.QID
+  description: A list of QID's
+  type: Unknown
+script: '-'
+subtype: python3
+system: false
+tags:
+- qualys
+timeout: '0'
+type: python
